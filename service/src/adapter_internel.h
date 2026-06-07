@@ -242,7 +242,7 @@ void adapter_on_device_found(bt_discovery_result_t* result);
 void adapter_on_scan_mode_changed(bt_scan_mode_t mode);
 void adapter_on_irk_changed(const char* irk, uint8_t size);
 void adapter_on_discovery_state_changed(bt_discovery_state_t state);
-void adapter_on_remote_name_recieved(bt_address_t* addr, const char* name);
+void adapter_on_remote_name_received(bt_address_t* addr, const char* name);
 void adapter_on_connect_request(bt_address_t* addr, uint32_t cod);
 void adapter_on_connection_state_changed(acl_state_param_t* param);
 void adapter_on_pairing_request(bt_address_t* addr, bool local_initiate, bool is_bondable);

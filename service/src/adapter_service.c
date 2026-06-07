@@ -1147,7 +1147,7 @@ static void process_device_found_evt(bt_discovery_result_t* remote)
     CALLBACK_FOREACH(CBLIST, adapter_callbacks_t, on_discovery_result, remote);
 }
 
-static void process_remote_name_recieved_evt(bt_address_t* addr, const char* name)
+static void process_remote_name_received_evt(bt_address_t* addr, const char* name)
 {
     adapter_lock();
     bt_device_t* device = adapter_find_create_classic_device(addr);
@@ -1175,7 +1175,7 @@ static void handle_discovery_event(void* data)
         process_device_found_evt(&evt->result);
         break;
     case REMOTE_NAME_RECIEVED_EVT:
-        process_remote_name_recieved_evt(&evt->remote_name.addr, (const char*)evt->remote_name.name);
+        process_remote_name_received_evt(&evt->remote_name.addr, (const char*)evt->remote_name.name);
         break;
     }
 
@@ -1691,7 +1691,7 @@ void adapter_on_device_found(bt_discovery_result_t* result)
     do_in_service_loop(handle_discovery_event, evt);
 }
 
-void adapter_on_remote_name_recieved(bt_address_t* addr, const char* name)
+void adapter_on_remote_name_received(bt_address_t* addr, const char* name)
 {
     adapter_discovery_evt_t* evt = malloc(sizeof(adapter_discovery_evt_t));
     if (!evt)
