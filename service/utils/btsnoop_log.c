@@ -28,7 +28,7 @@
 static pthread_mutex_t snoop_lock = PTHREAD_MUTEX_INITIALIZER;
 static bool snoop_enable = false;
 
-void btsnoop_log_capture(uint8_t recieve, uint8_t* hci_pkt, uint32_t hci_pkt_size)
+void btsnoop_log_capture(uint8_t receive, uint8_t* hci_pkt, uint32_t hci_pkt_size)
 {
 #if CONFIG_BLUETOOTH_SNOOP_LOG
     pthread_mutex_lock(&snoop_lock);
@@ -37,13 +37,13 @@ void btsnoop_log_capture(uint8_t recieve, uint8_t* hci_pkt, uint32_t hci_pkt_siz
         pthread_mutex_unlock(&snoop_lock);
         return;
     }
-    if (filter_can_filter(recieve, hci_pkt, hci_pkt_size)) {
+    if (filter_can_filter(receive, hci_pkt, hci_pkt_size)) {
         pthread_mutex_unlock(&snoop_lock);
         return;
     }
 
     pthread_mutex_unlock(&snoop_lock);
-    writer_write_log(recieve, hci_pkt, hci_pkt_size);
+    writer_write_log(receive, hci_pkt, hci_pkt_size);
 #endif
 }
 

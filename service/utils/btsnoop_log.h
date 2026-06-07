@@ -23,7 +23,7 @@
 
 #include <stdint.h>
 
-void btsnoop_log_capture(uint8_t is_recieve, uint8_t* hci_pkt, uint32_t hci_pkt_size);
+void btsnoop_log_capture(uint8_t is_receive, uint8_t* hci_pkt, uint32_t hci_pkt_size);
 int btsnoop_log_init(void);
 void btsnoop_log_uninit(void);
 int btsnoop_log_enable(void);

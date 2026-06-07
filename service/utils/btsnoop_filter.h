@@ -73,7 +73,7 @@ typedef enum {
 
 int filter_init();
 void filter_uninit();
-bool filter_can_filter(uint8_t is_recieve, uint8_t* hci_pkt, uint32_t hci_pkt_size);
+bool filter_can_filter(uint8_t is_receive, uint8_t* hci_pkt, uint32_t hci_pkt_size);
 int filter_set_filter_flag(btsnoop_filter_flag_t filter_flag);
 int filter_remove_filter_flag(btsnoop_filter_flag_t filter_flag);
 #endif //__SNOOP_FILTER_H__

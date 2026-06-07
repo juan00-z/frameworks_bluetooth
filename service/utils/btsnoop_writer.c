@@ -272,7 +272,7 @@ void writer_uninit()
     close_snoop_file();
 }
 
-int writer_write_log(uint8_t is_recieve, uint8_t* p, uint32_t len)
+int writer_write_log(uint8_t is_receive, uint8_t* p, uint32_t len)
 {
     struct btsnoop_pkt_hdr pkt;
     uint32_t ms;
@@ -298,7 +298,7 @@ int writer_write_log(uint8_t is_recieve, uint8_t* p, uint32_t len)
     pkt.size = byteswap_ulong(len);
     pkt.len = pkt.size;
     pkt.drops = 0;
-    pkt.flags = (is_recieve) ? byteswap_ulong(0x01) : 0;
+    pkt.flags = (is_receive) ? byteswap_ulong(0x01) : 0;
     nts += (0x4A676000) + (((int64_t)0x00E03AB4) << 32);
     d[0] = byteswap_ulong(s[1]);
     d[1] = byteswap_ulong(s[0]);
